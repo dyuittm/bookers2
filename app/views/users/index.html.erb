@@ -1,1 +1,16 @@
-<h4>users</h4>
+<%= render 'books/sideform', book: @book, user: @user %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= link_to book.title, books_path(user_id) %></td>
+      <td><%= book.body %></td>
+    </tr>
+  </tbody>
+</table>

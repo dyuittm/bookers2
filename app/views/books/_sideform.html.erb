@@ -1,0 +1,22 @@
+<h4>User info</h4>
+<%= image_tag user.get_profile_image(100,100 ) %>
+<table>
+  <tr>
+    <th>name</th>
+    <tb><%= user.name %></tb>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <tb><%= user.introduction %></tb>
+  </tr>
+</table>
+<%= button_to "ボタン", {controller: 'users', action: 'edit'}, {method: :get} %>
+
+<h4>New book</h4>
+<%= form_with model: book do |f| %>
+  <p>Title</p>
+    <%= f.text_field :title %>
+  <p>Opinion</p>
+    <%= f.text_area :body %>
+  <%= f.submit'Create book' %>
+<% end %>
