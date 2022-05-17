@@ -1,1 +1,11 @@
+<p><%= notice %></p>
+
 <%= render 'sideform', book: @book, user: @user %>
+
+<h4>Book detail</h4>
+<%= image_tag user.get_profile_image(100,100) %>
+<%= user.name %>
+<%= link_to @book.title, book_path(@book) %>
+<%= @book.body %>
+<%= link_to "Edit", edit_book_path(@book) %>
+<%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm"=>"本当に消しますか？" %>

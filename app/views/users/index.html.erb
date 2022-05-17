@@ -1,16 +1,22 @@
 <%= render 'books/sideform', book: @book, user: @user %>
 
+<h4>Users</h4>
+
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Opinion</th>
+      <th>image</th>
+      <th>name</th>
+      <th colspan=3></th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><%= link_to book.title, books_path(user_id) %></td>
-      <td><%= book.body %></td>
-    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.get_profile_image(100,100) %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to "Show", user_path(user) %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
