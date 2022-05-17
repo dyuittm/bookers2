@@ -1,3 +1,9 @@
+<%= if @book.errors.any? %>
+  <%= @book.errors.count %>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li></li>
+  </ul>
 <h4>User info</h4>
 <%= image_tag user.get_profile_image(100,100 ) %>
 <table>
