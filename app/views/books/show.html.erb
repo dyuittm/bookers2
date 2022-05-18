@@ -1,6 +1,6 @@
 <p><%= notice %></p>
 
-<%= render 'sideform', book: Book.new, user: @user %>
+<%= render 'sideform', book: @book_new, user: @user %>
 
 <h4>Book detail</h4>
 <%= image_tag @book.user.get_profile_image(100,100) %>
