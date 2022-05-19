@@ -1,4 +1,13 @@
 <div class="container">
+  <% if @book_new.errors.any? %>
+    <%= @book_new.errors.count %>errors prohibited this obj from being saved:
+    <ul>
+      <% @book_new.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="row">
     <div class="col-md-3">
       <%= render 'sideform', book: @book_new, user: @user %>
