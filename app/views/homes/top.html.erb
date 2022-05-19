@@ -1,8 +1,36 @@
-<h1>welcomo to <strong>bookers</strong> !!</h1>
-<p>
-  In <strong>Bookers</strong> .<br>
-  you can share nd exchange yuor opinions , inpressions , and emotions<br>
-  about various books!
-</p>
+<p id="notice"><% notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      <h1>
+        welcomo to&nbsp;
+        <i class="fa-solid fa-book"></i>
+        <strong>bookers</strong>
+        &nbsp;!!
+      </h1>
+      <p>
+        In&nbsp;
+        <i class="fa-solid fa-book"></i>
+        <strong>Bookers</strong>
+        .<br>
+        you can share nd exchange yuor opinions , inpressions , and emotions<br>
+        about various books!
+      </p>
+      <div class="btn-wrapper col-10 mx-auto">
+        <div class="row">
+          <button class="btn btn-info btn-sm btn-block md-3 sign_in">
+            <%= link_to "Log in", new_user_session_path %>
+          </button>
+        </div>
+        <div class="row">
+          <button class="btn btn-success btn-sm btn-block sign_up">
+          <%= link_to "Sign up", new_user_registration_path %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
