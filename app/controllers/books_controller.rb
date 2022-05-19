@@ -10,7 +10,8 @@ class BooksController < ApplicationController
       redirect_to book_path(@book), notice:"You have created book successfully."
     else
       @user = current_user
-      render :'users/index'
+      @books = Book.page(params[:page])
+      render :index
     end
   end
 

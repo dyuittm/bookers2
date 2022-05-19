@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-3">
       <%= render 'books/sideform', book: @book, user: @user %>
     </div>
-    <div class="col-lg-8">
+    <div class="col-md-8">
       <h4>Books</h4>
       <table>
         <thead>
@@ -21,9 +21,9 @@
               <td><%= book.body %></td>
             </tr>
           <% end %>
-          <%= paginate @books %>
         </tbody>
       </table>
+      <%= paginate @books %>
     </div>
   </div>
 </div>
