@@ -1,27 +1,35 @@
-<% if @user.errors.any? %>
-  <%= @user.errors.count %>errors prohibited this obj from being saved:
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+  <div id="error_explanation">
+    <% if @user.errors.any? %>
+      <h3><%= @user.errors.count %>errors prohibited this obj from being saved:</h3>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
-
-<h3>User info</h3>
-<%= form_with model: @user do |f| %>
-  <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :name, autofocus: true %>
   </div>
-  <div class="field">
-    <%= f.label :Image %><br />
-    <%= f.file_field :profile_image, placeholder: "profile_image", accept: "image/*" %>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <%= form_with model: @user do |f| %>
+        <div class="form-group">
+          <%= f.label :Name, for: "user_name" %><br />
+          <%= f.text_field :name, class: "form_control name" %>
+        </div>
+        <div class="form_group">
+          <%= f.label :Image, for: "user_image" %><br />
+          <%= f.file_field :profile_image, class: "form_control-file user_image" %>
+        </div>
+        <div class="form_group">
+          <%= f.label :Introduction, for: "user_introduction" %><br />
+          <%= f.text_area :introduction, class: "form_control introduction" %>
+        </div>
+        <div class="action">
+          <%= f.submit'Update user', class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :Introduction %><br />
-    <%= f.text_area :introduction, autofocus: true %>
-  </div>
-  <div class="action">
-    <%= f.submit'Update user' %>
-  </div>
-<% end %>
+</div>
