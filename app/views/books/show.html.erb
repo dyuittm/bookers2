@@ -1,19 +1,16 @@
 <div class="container">
   <div id="error_explanation">
-    <% if @book_new.errors.any? %>
-      <%= @book_new.errors.count %>errors prohibited this obj from being saved:
+    <% if @book.errors.any? %>
+      <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
       <ul>
-        <% @book_new.errors.full_messages.each do |message| %>
+        <% @book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     <% end %>
   </div>
-
   <div class="row">
-    <div class="col-md-3">
-      <%= render 'sideform', book: @book_new, user: @user %>
-    </div>
+    <%= render 'sideform', book: @book_new, user: @user %>
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table">
@@ -25,8 +22,14 @@
             </td>
             <td><%= link_to @book.title, book_path(@book) %></td>
             <td><%= @book.body %></td>
-            <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %></td>
-            <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-sm btn-danger" %></td>
+            <% if @user == current_user %>
+              <td>
+                <%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %>
+              </td>
+              <td>
+                <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-sm btn-danger" %>
+              </td>
+            <% end %>
           </tr>
         </tbody>
       </table>

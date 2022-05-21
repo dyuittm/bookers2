@@ -1,20 +1,21 @@
-<div class="container">
-  <% if @book.errors.any? %>
-    <%= @book.errors.count %>errors prohibited this obj from being saved:
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<p id="notice"><%= notice %></p>
+<div class="container px-5 px-sm-0">
+  <div id="error_explanation">
+    <% if @book.errors.any? %>
+      <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 
   <div class="row">
-    <div class="col-md-3">
-      <%= render 'books/sideform', book: @book, user: @user %>
-    </div>
-    <div class="col-md-8">
+    <%= render 'books/sideform', book: @book, user: @user %>
+    <div class="col-md-8 offsrt-md-1">
       <h4>Users</h4>
-      <table class="table table-striped">
+      <table class="table">
         <thead>
           <tr>
             <th>image</th>
